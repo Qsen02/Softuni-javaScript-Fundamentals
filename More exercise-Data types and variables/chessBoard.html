@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .chessboard div {
+            display: table;
+            clear: both;
+        }
+        
+        span {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        
+        .white {
+            background-color: white;
+        }
+        
+        .black {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function chessBoard(n) {
+            let openTag = `<div class="chessboard">`;
+            let closeTag = "</div>";
+            document.write(openTag);
+            for (let i = 1; i <= n; i++) {
+                document.write("  <div>");
+                for (let j = 1; j <= n; j++) {
+                    if (i % 2 != 0) {
+                        if (j % 2 != 0) {
+                            document.write(`    <span class="black"></span>`);
+                        } else {
+                            document.write(`    <span class="white"></span>`);
+                        }
+                    } else {
+                        if (j % 2 != 0) {
+                            document.write(`    <span class="white"></span>`);
+                        } else {
+                            document.write(`    <span class="black"></span>`);
+                        }
+                    }
+                }
+                document.write("  </div>");
+            }
+            document.write(closeTag);
+        }
+        chessBoard(8);
+    </script>
+</body>
+
+</html>
