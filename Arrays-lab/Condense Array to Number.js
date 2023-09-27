@@ -11,7 +11,7 @@ function arrays(inputArray) {
             inputArray = condense;
             condense = [];
         }
-        console.log(inputArray.join());
+        console.log(inputArray[0]);
     }
 }
 arrays([5, 0, 4, 1, 2]);
