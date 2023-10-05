@@ -1,13 +1,18 @@
 function signCheck(num1, num2, num3) {
-    let result = calculation(num1, num2, num3);
-    if (result > 0) {
-        console.log("Positive");
-    } else {
-        console.log("Negative");
+    let negativeCount = 0;
+    if (num1 < 0) {
+        negativeCount++;
     }
-
-    function calculation(a, b, c) {
-        return a * b * c;
+    if (num2 < 0) {
+        negativeCount++;
+    }
+    if (num3 < 0) {
+        negativeCount++;
+    }
+    if (negativeCount % 2 != 0) {
+        console.log("Negative");
+    } else {
+        console.log("Positive");
     }
 }
-signCheck(5, 12, 0);
+signCheck(-5, -12, 5);
