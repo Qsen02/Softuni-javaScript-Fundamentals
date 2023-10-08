@@ -1,7 +1,7 @@
 function printDNA(num) {
     printsCount = 0;
     for (let i = 1; i < num + 1; i++) {
-        let curLine = printStarsAndLetters(i);
+        let curLine = printLetters(i);
         let curLetter = curLine.split(" ");
         let firstLetter = curLetter[0];
         let secondLetter = curLetter[1];
@@ -18,7 +18,7 @@ function printDNA(num) {
     }
 }
 
-function printStarsAndLetters(num) {
+function printLetters(num) {
     let letters = ["A T", "C G", "T T", "A G", "G G"];
     let length = letters.length;
     return letters[(num - 1) % length];
