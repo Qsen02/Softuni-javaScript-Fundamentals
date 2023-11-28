@@ -3,10 +3,10 @@ function needForSpeed(inputArray) {
     let cars = {};
     class Car {
         constructor(mileage, fuel) {
-            this.mileage = mileage;
-            this.fuel = fuel;
+            this.mileage = Number(mileage);
+            this.fuel = Number(fuel);
         }
-        Drive(carName, distance, needFuel) {
+        drive(carName, distance, needFuel) {
             if (needFuel > cars[carName]["fuel"]) {
                 console.log("Not enough fuel to make that ride");
             } else {
@@ -19,7 +19,7 @@ function needForSpeed(inputArray) {
                 }
             }
         }
-        Refuel(carName, refuel) {
+        refuel(carName, refuel) {
             if (cars[carName]["fuel"] + refuel > 75) {
                 refuel = 75 - cars[carName]["fuel"];
                 cars[carName]["fuel"] += refuel;
@@ -29,7 +29,7 @@ function needForSpeed(inputArray) {
                 console.log(`${carName} refueled with ${refuel} liters`);
             }
         }
-        Revert(carName, kilometers) {
+        revert(carName, kilometers) {
             cars[carName]["mileage"] -= kilometers;
             if (cars[carName]["mileage"] < 10000) {
                 cars[carName]["mileage"] = 10000;
@@ -41,10 +41,7 @@ function needForSpeed(inputArray) {
     for (let i = 0; i < carsCount; i++) {
         let curCar = inputArray[i];
         let [carName, mileage, fuel] = curCar.split("|");
-        mileage = Number(mileage);
-        fuel = Number(fuel);
-        let car = new Car(mileage, fuel);
-        cars[carName] = car;
+        cars[carName] = new Car(mileage, fuel);
     }
     let command = inputArray.shift();
     while (command != "Stop") {
@@ -54,16 +51,15 @@ function needForSpeed(inputArray) {
             let carName = token[1];
             let distance = Number(token[2]);
             let needFuel = Number(token[3]);
-            cars[carName].Drive(carName, distance, needFuel);
+            cars[carName].drive(carName, distance, needFuel);
         } else if (action == "Refuel") {
             let carName = token[1];
             let refuel = Number(token[2]);
-            cars[carName].Refuel(carName, refuel);
+            cars[carName].refuel(carName, refuel);
         } else if (action == "Revert") {
             let carName = token[1];
             let kilometers = Number(token[2]);
-            cars[carName].Revert(carName, kilometers);
-
+            cars[carName].revert(carName, kilometers);
         }
         command = inputArray.shift();
     }
