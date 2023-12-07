@@ -1,2 +1,2 @@
 # Softuni javaScript Fundamentals
- Домашни задачи и изпитни задачи от курса.
+ Execises from homeworks and exams in the current course.
