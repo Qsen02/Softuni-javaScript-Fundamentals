@@ -19,15 +19,9 @@ function browserHistory(inputObject, inputArray) {
                 }
             }
         } else if (command == "Clear History and Cache") {
-            for (let key in inputObject) {
-                if (key == "Browser Name") {
-                    continue;
-                } else {
-                    while (inputObject[key].length != 0) {
-                        inputObject[key].shift();
-                    }
-                }
-            }
+            inputObject["Open Tabs"] = [];
+            inputObject["Recently Closed"] = [];
+            inputObject["Browser Logs"] = [];
         }
     }
     console.log(inputObject["Browser Name"]);
