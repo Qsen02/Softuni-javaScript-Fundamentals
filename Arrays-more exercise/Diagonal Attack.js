@@ -33,8 +33,8 @@ function diagonalAttack(inputArray) {
             console.log(line);
         }
     } else {
-        for (let i = 0; i < matrix.length; i++) {
-            let curLine = matrix[i].join(" ");
+        for (let arr of matrix) {
+            let curLine = arr.join(" ");
             console.log(curLine);
         }
     }
